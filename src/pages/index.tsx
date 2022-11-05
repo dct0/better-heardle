@@ -1,13 +1,13 @@
-import GuessManager from '@/components/guessmanager';
+import Game from '@/components/game';
 import Navbar from '@/components/navbar';
-import Player from '@/components/player';
 
-const Index = () => (
-  <div className="w-full">
-    <Navbar />
-    <GuessManager />
-    <Player />
-  </div>
-);
+const Index = () => {
+  return (
+    <div className="flex flex-col w-screen h-screen justify-between">
+      <Navbar />
+      <Game />
+    </div>
+  );
+};
 
 export default Index;

@@ -1,10 +1,12 @@
+import { BsPlayCircle } from 'react-icons/bs';
+
 const Player = () => {
   return (
-    <div className="flex justify-center flex-col items-center">
-      <div className="h-4 flex w-screen border-black border-y">
-        <div className="relative m-auto w-3/4 h-full">
+    <div className="w-full flex flex-col items-center gap-2">
+      <div className="h-4 flex w-screen border-black border-y justify-start">
+        <div className="w-[42rem] relative mx-auto h-full">
           <div
-            className="h-full absolute bg-black w-full origin-top-left"
+            className="bg-gray-700 h-full absolute w-full origin-top-left"
             style={{ transform: 'scaleX(0.125)' }}
           ></div>
           <div
@@ -37,7 +39,11 @@ const Player = () => {
           ></div>
         </div>
       </div>
-      <div>Player</div>
+      <div className="w-full flex justify-between items-center">
+        <>0:00</>
+        <BsPlayCircle className="w-8 h-8" />
+        <>0:16</>
+      </div>
     </div>
   );
 };
