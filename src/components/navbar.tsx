@@ -1,6 +1,8 @@
-import { FaChartBar, FaHome, FaInfoCircle, FaSpotify } from 'react-icons/fa';
+import { FaChartBar, FaHome, FaInfoCircle } from 'react-icons/fa';
 
 import { AppConfig } from '@/utils/AppConfig';
+
+import LoginButton from './loginbutton';
 
 const Navbar = () => {
   return (
@@ -14,7 +16,7 @@ const Navbar = () => {
         <div className="font-bold">{AppConfig.title}</div>
         <span className="flex">
           <FaChartBar className="m-2" />
-          <FaSpotify className="m-2" />
+          <LoginButton />
         </span>
       </div>
     </nav>
