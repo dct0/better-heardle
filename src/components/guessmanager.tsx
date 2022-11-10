@@ -1,13 +1,24 @@
-import { GameConfig } from '@/utils/AppConfig';
+import type { GuessProps } from '@/utils/types';
 
 import Guess from './guess';
 
-const GuessManager = () => {
+interface GuessManagerProps {
+  guesses: GuessProps[];
+}
+
+const GuessManager = ({ guesses }: GuessManagerProps) => {
   return (
     <div className="flex w-[42rem] flex-col mx-auto gap-2 my-2">
-      {Array.from(Array(GameConfig.num_guesses)).map((_, index) => (
-        <Guess key={index} />
-      ))}
+      {guesses?.map((guess, index) => {
+        return (
+          <Guess
+            key={index}
+            enabled={guess.enabled}
+            correct={guess.correct}
+            title={guess.title}
+          />
+        );
+      })}
     </div>
   );
 };

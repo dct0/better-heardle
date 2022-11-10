@@ -57,7 +57,8 @@
         "unused-imports/no-unused-vars": [
           "error",
           { "argsIgnorePattern": "^_" }
-        ]
+        ],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
       }
     },
     // Configuration for testing
