@@ -1,7 +1,6 @@
 import type { SyntheticEvent } from 'react';
 import { FaSpotify } from 'react-icons/fa';
 
-import { client_id, redirect_uri, scope } from '@/utils/config';
 import { objectToQuery } from '@/utils/utils';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -11,12 +10,13 @@ const LoginButton = () => {
     event.preventDefault();
 
     const state = 'test';
+    window.localStorage.setItem('state', state);
 
     const query = {
       response_type: 'code',
-      client_id,
-      scope,
-      redirect_uri,
+      client_id: process.env.NEXT_PUBLIC_CLIENT_ID || '',
+      scope: process.env.NEXT_PUBLIC_SCOPE || '',
+      redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI || '',
       state,
     };
 
