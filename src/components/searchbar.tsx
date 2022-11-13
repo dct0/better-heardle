@@ -9,7 +9,7 @@ interface SearchBarProps {
 
 const SearchBar = ({ handleSubmit }: SearchBarProps) => {
   const [search, setSearch] = useState('');
-  const [showable, setShowable] = useState(false);
+  const [showable, setShowable] = useState(false); // pretty sure i don't need this
   const [showResults, setShowResults] = useState(false);
 
   const handleFocus = () => {

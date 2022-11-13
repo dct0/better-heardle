@@ -31,8 +31,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       if (error.status && error.response)
         res.status(error.status).json(error.response.data);
     } else {
-      res.status(500).json(error);
       console.error(error);
+      res.status(500).json(error);
     }
   }
 };

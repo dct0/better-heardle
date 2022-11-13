@@ -1,27 +1,10 @@
-import { FaChartBar, FaHome, FaInfoCircle } from 'react-icons/fa';
+import { FaChartBar, FaHome, FaInfoCircle, FaSync } from 'react-icons/fa';
 
 import { AppConfig } from '@/utils/AppConfig';
+import { getPlaylists } from '@/utils/utils';
 
 import LoginButton from './loginbutton';
-
-const getPlaylists = () => {
-  fetch('/api/playlists', {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${window.localStorage.getItem('access_token')}`,
-    },
-  }).then((res) =>
-    res
-      .json()
-      .then((r) => {
-        console.log(r);
-        window.localStorage.setItem('playlists', JSON.stringify(r.items));
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-  );
-};
+import MusicButton from './musicbutton';
 
 const Navbar = () => {
   return (
@@ -30,12 +13,14 @@ const Navbar = () => {
         <span className="flex">
           <FaHome className="m-2" />
           <FaInfoCircle className="m-2" />
+          <FaChartBar className="m-2" />
         </span>
 
         <div className="font-bold">{AppConfig.title}</div>
         <span className="flex">
-          <FaChartBar
-            className="m-2"
+          <MusicButton />
+          <FaSync
+            className="m-2 cursor-pointer"
             onClick={() => {
               getPlaylists();
             }}

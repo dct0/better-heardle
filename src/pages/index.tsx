@@ -1,10 +1,8 @@
 import Game from '@/components/game';
 import Navbar from '@/components/navbar';
+import useModal from '@/hooks/usemodal';
 
 const Index = () => {
-  // useEffect(() => {
-  //    fetch playlists here?
-  // }, []);
   return (
     <div className="flex flex-col w-screen h-screen justify-between">
       <Navbar />

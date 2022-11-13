@@ -10,3 +10,22 @@ export const queryToObject = (query: string) => {
 export const formatTime = (time: number) => {
   return `00:${String(Math.ceil(time)).padStart(2, '0')}`;
 };
+
+export const getPlaylists = () => {
+  fetch('/api/playlists', {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem('access_token')}`,
+    },
+  }).then((res) =>
+    res
+      .json()
+      .then((r) => {
+        console.log(r);
+        window.localStorage.setItem('playlists', JSON.stringify(r.items));
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  );
+};
