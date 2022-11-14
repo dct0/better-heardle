@@ -1,11 +1,10 @@
-import Game from '@/components/game';
-import Navbar from '@/components/navbar';
-import useModal from '@/hooks/usemodal';
+import Game from '@/components/Game';
+import Header from '@/components/Header';
 
 const Index = () => {
   return (
     <div className="flex flex-col w-screen h-screen justify-between">
-      <Navbar />
+      <Header />
       <Game />
     </div>
   );

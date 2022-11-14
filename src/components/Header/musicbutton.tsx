@@ -2,7 +2,7 @@ import { FaMusic } from 'react-icons/fa';
 
 import useModal from '@/hooks/usemodal';
 
-import Modal from './modal';
+import Modal from '../modal';
 
 const MusicButton = () => {
   const { visible, toggle, ref } = useModal();

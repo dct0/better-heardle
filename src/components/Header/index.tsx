@@ -6,9 +6,9 @@ import { getPlaylists } from '@/utils/utils';
 import LoginButton from './loginbutton';
 import MusicButton from './musicbutton';
 
-const Navbar = () => {
+const Header = () => {
   return (
-    <nav className="border-b-2 border-black p-2">
+    <div className="border-b-2 border-black p-2">
       <div className="flex text-2xl justify-around">
         <span className="flex">
           <FaHome className="m-2" />
@@ -28,8 +28,8 @@ const Navbar = () => {
           <LoginButton />
         </span>
       </div>
-    </nav>
+    </div>
   );
 };
 
-export default Navbar;
+export default Header;

@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { GameConfig } from '@/utils/AppConfig';
 import type { GuessProps } from '@/utils/types';
 
-import GuessManager from './guessmanager';
+import GuessManager from '../Guesses';
+import SearchBar from '../SearchBar';
 import Player from './player';
-import SearchBar from './searchbar';
 
 const song = {
   name: 'test',
