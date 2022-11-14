@@ -10,6 +10,15 @@ a:hover {
 
 @tailwind components;
 
+.icon {
+  @apply m-2 cursor-pointer;
+}
+
+.max-w-40 {
+  @apply max-w-[10rem] /* 160px */;
+}
+
+
 @tailwind utilities;
 
 .content p {

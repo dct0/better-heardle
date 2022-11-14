@@ -24,7 +24,7 @@ const LoginButton = () => {
       `https://accounts.spotify.com/authorize?${objectToQuery(query)}`
     );
   };
-  return <FaSpotify className="m-2 cursor-pointer" onClick={handleClick} />;
+  return <FaSpotify className="icon" onClick={handleClick} />;
 };
 
 export default LoginButton;

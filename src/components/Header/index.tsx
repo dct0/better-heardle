@@ -11,16 +11,16 @@ const Header = () => {
     <div className="border-b-2 border-black p-2">
       <div className="flex text-2xl justify-around">
         <span className="flex">
-          <FaHome className="m-2" />
-          <FaInfoCircle className="m-2" />
-          <FaChartBar className="m-2" />
+          <FaHome className="icon" />
+          <FaInfoCircle className="icon" />
+          <FaChartBar className="icon" />
         </span>
 
         <div className="font-bold">{AppConfig.title}</div>
         <span className="flex">
           <MusicButton />
           <FaSync
-            className="m-2 cursor-pointer"
+            className="icon"
             onClick={() => {
               getPlaylists();
             }}

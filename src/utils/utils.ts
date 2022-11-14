@@ -1,3 +1,5 @@
+import type { PlaylistOverview } from './types';
+
 export const objectToQuery = (object: Record<string, string>) => {
   return new URLSearchParams(object).toString();
 };
@@ -22,7 +24,14 @@ export const getPlaylists = () => {
       .json()
       .then((r) => {
         console.log(r);
-        window.localStorage.setItem('playlists', JSON.stringify(r.items));
+        window.localStorage.setItem(
+          'playlists',
+          JSON.stringify(
+            r.items.sort((a: PlaylistOverview, b: PlaylistOverview) => {
+              return b.tracks.total - a.tracks.total;
+            })
+          )
+        );
       })
       .catch((error) => {
         console.error(error);
