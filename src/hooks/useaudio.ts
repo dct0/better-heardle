@@ -11,12 +11,10 @@ const useAudio = (url: string) => {
 
   useEffect(() => {
     setAudio(new Audio(url)); // for some reason i can't guarantee this is run unless i have a loaded event
-    setLoaded(!loaded); // trigger loaded event
   }, []);
 
   useEffect(() => {
     if (!audio) {
-      console.error('Why is audio null');
       return () => {};
     }
 
@@ -33,18 +31,19 @@ const useAudio = (url: string) => {
       setIsPlaying(false);
     };
 
-    audio.addEventListener('loadeddata', setAudioData);
+    audio.addEventListener('canplaythrough', setAudioData);
     audio.addEventListener('timeupdate', setAudioTime);
     audio.addEventListener('ended', setAudioEnd);
 
     return () => {
-      audio.removeEventListener('loadeddata', setAudioData);
+      audio.removeEventListener('canplaythrough', setAudioData);
       audio.removeEventListener('timeupdate', setAudioTime);
       audio.removeEventListener('ended', setAudioEnd);
     };
   }, [loaded]);
 
   useEffect(() => {
+    if (audio) setLoaded(!loaded); // trigger loaded event
     if (audio && isPlaying) {
       audio.play();
     }

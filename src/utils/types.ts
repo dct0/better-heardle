@@ -10,6 +10,7 @@ export interface PlaylistOverview {
   external_urls: {
     spotify: string;
   };
+  id: string;
   images: {
     url: string;
     height: number | null;

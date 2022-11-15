@@ -18,6 +18,16 @@ a:hover {
   @apply max-w-[10rem] /* 160px */;
 }
 
+.icon-container-circle {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 p-2 z-50 cursor-pointer rounded-full hover:bg-[rgba(0,0,0,0.5)];
+}
+
+.icon-select {
+  @apply cursor-pointer;
+  @apply box-content;
+  @apply fill-white hover:fill-gray-400 active:fill-gray-500;
+}
+
 
 @tailwind utilities;
 

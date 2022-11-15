@@ -21,14 +21,14 @@ const Modal = ({ visible, toggle, title, children, divRef }: ModalProps) =>
           />
           {/* Wrapper */}
           <div
-            className="fixed top-0 left-0 w-full h-full z-40 overflow-hidden outline-none"
+            className="fixed top-0 left-0 w-full h-full z-40 overflow-hidden outline-none backdrop-blur-sm"
             tabIndex={-1}
           >
             {/* Modal */}
 
             <div
-              className="flex flex-col border rounded-lg relative z-50 bg-white space-y-4 w-5/6 h-5/6 p-6 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2
-            "
+              className="flex flex-col border rounded-lg relative z-50 bg-white space-y-4
+                         w-5/6 h-5/6 p-6 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
               ref={divRef}
             >
               {/* Header */}

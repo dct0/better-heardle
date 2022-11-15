@@ -39,6 +39,9 @@ module.exports = {
           900: '#2a4365',
         },
       },
+      gridTemplateColumns: {
+        'fit-sm': 'repeat(auto-fit, minmax(14rem, 1fr))',
+      },
     },
   },
   plugins: [],
