@@ -19,6 +19,7 @@ const Playlists = () => {
             key={p.id}
             id={p.id}
             coverURL={p.images[0]?.url}
+            playlistURL={p.external_urls.spotify}
             name={p.name}
             songCount={p.tracks.total}
             selected={currPlaylistID === p.id}

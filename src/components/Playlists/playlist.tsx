@@ -4,6 +4,7 @@ import { FaPause, FaPlay } from 'react-icons/fa';
 interface PlaylistProps {
   id: string;
   coverURL?: string;
+  playlistURL: string;
   name: string;
   songCount: number;
   selected: boolean;
@@ -13,6 +14,7 @@ interface PlaylistProps {
 const Playlist = ({
   id,
   coverURL,
+  playlistURL,
   name,
   songCount,
   selected,
@@ -46,11 +48,19 @@ const Playlist = ({
           </div>
 
           {/* Name TODO: make it link to the playlist */}
-          <div className="text-xl font-bold text-ellipsis whitespace-nowrap overflow-hidden cursor-pointer">
-            {name}
+          <div className="text-ellipsis whitespace-nowrap overflow-hidden">
+            <a
+              className="text-xl font-bold cursor-pointer"
+              href={playlistURL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {name}
+            </a>
           </div>
+
           {/* Song Count */}
-          <div>{songCount}</div>
+          <div>{`${songCount} song${songCount === 1 ? '' : 's'}`}</div>
         </div>
       </span>
     </>

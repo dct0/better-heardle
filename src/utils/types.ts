@@ -6,7 +6,7 @@ export interface GuessProps {
 
 export interface PlaylistOverview {
   collaborative: boolean;
-  description: string | null;
+  description: string;
   external_urls: {
     spotify: string;
   };
