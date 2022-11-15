@@ -31,7 +31,10 @@ const Playlist = ({
 
             <div
               className="icon-container-circle"
-              onClick={() => setPlaylist(id)}
+              onClick={() => {
+                window.localStorage.setItem('currPlaylistID', id);
+                setPlaylist(id);
+              }}
             >
               {selected ? (
                 <FaPause className="icon-select" />
