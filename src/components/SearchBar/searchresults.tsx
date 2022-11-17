@@ -1,17 +1,9 @@
 import type { Dispatch, SetStateAction } from 'react';
+import { useContext } from 'react';
+
+import { GameContext } from '@/context';
 
 import SearchResult from './searchresult';
-
-const results = [
-  { title: 'test1' },
-  { title: 'test2' },
-  { title: 'test3' },
-  { title: 'test4' },
-  { title: 'test5' },
-  { title: 'test6' },
-  { title: 'test7' },
-  { title: 'test8' },
-];
 
 interface SearchResultsProps {
   visible: boolean;
@@ -26,6 +18,7 @@ const SearchResults = ({
   search,
   setSearch,
 }: SearchResultsProps) => {
+  const { tracks } = useContext(GameContext);
   const handleClick = (title: string) => {
     setSearch(title);
     console.log(title);
@@ -37,15 +30,23 @@ const SearchResults = ({
       className="z-10 absolute border border-black w-full bottom-10 bg-white rounded overflow-y-auto max-h-64"
       hidden={!visible}
     >
-      {results
-        .filter((value) => {
-          return value.title.toLowerCase().includes(search);
-        })
-        .map((r, i) => {
-          return (
-            <SearchResult key={i} title={r.title} handleClick={handleClick} />
-          );
-        })}
+      {tracks &&
+        tracks
+          .filter((value) => {
+            return (
+              value.track?.name.toLowerCase().includes(search) &&
+              value.track?.preview_url
+            );
+          })
+          .map((r, i) => {
+            return (
+              <SearchResult
+                key={i}
+                title={r.track.name}
+                handleClick={handleClick}
+              />
+            );
+          })}
     </ul>
   );
 };

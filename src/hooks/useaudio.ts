@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
-const useAudio = (url: string) => {
+const useAudio = (url?: string) => {
   const [loaded, setLoaded] = useState(false);
+  const [currURL, setCurrURL] = useState(url);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [currTime, setCurrTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -12,6 +13,10 @@ const useAudio = (url: string) => {
   useEffect(() => {
     setAudio(new Audio(url)); // for some reason i can't guarantee this is run unless i have a loaded event
   }, []);
+
+  useEffect(() => {
+    setAudio(new Audio(currURL));
+  }, [currURL]);
 
   useEffect(() => {
     if (!audio) {
@@ -52,7 +57,7 @@ const useAudio = (url: string) => {
     }
   }, [audio, isPlaying]);
 
-  return [audio, isPlaying, toggle, currTime, length] as const;
+  return { audio, setCurrURL, isPlaying, toggle, currTime, length } as const;
 };
 
 export default useAudio;

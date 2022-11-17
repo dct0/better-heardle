@@ -22,3 +22,13 @@ export interface PlaylistOverview {
     total: number;
   };
 }
+
+export interface SpotifyTrack {
+  is_local: boolean;
+  track: {
+    name: string;
+    preview_url: string | null;
+  };
+}
+
+export type Tracks = SpotifyTrack[];

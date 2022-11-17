@@ -10,10 +10,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).send({ message: 'Only GET requests allowed' });
   }
 
-  if (req.body.token) {
-    res.status(400).send('Missing access token');
-  }
-
   const axiosConfig = {
     headers: {
       Authorization: req.headers.authorization,

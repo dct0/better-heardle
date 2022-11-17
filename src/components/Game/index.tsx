@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
+import { GameContext } from '@/context';
 import { GameConfig } from '@/utils/AppConfig';
 import type { GuessProps } from '@/utils/types';
 
@@ -7,13 +8,8 @@ import GuessManager from '../Guesses';
 import SearchBar from '../SearchBar';
 import Player from './player';
 
-const song = {
-  name: 'test',
-  url: '',
-};
-
 const Game = () => {
-  // useReducer()?
+  const gameContext = useContext(GameContext);
   const [currGuess, setCurrGuess] = useState(0);
   const [guesses, setGuesses] = useState<GuessProps[]>([]);
 
@@ -31,7 +27,7 @@ const Game = () => {
       guess.enabled = true;
       guess.title = search;
 
-      if (search === song.name) {
+      if (search === gameContext.answer?.track.name) {
         console.log('Match');
         guess.correct = true;
         console.log('Game also over');

@@ -8,10 +8,7 @@ export const useOutsideListener = (
 ) => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(<Node>event.target)) {
-        console.log('hi');
-        func();
-      }
+      if (ref.current && !ref.current.contains(<Node>event.target)) func();
     };
 
     document.addEventListener('mousedown', handleClickOutside);

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable no-nested-ternary */
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {
   BsPauseCircle,
   BsPauseCircleFill,
@@ -8,22 +8,22 @@ import {
   BsPlayCircleFill,
 } from 'react-icons/bs';
 
+import { GameContext } from '@/context';
 import useAudio from '@/hooks/useaudio';
 import { formatTime } from '@/utils/utils';
 
-// const track_id = '0gfiKZjfraqJ1mbcOycxS5';
-const track_url =
-  'https://p.scdn.co/mp3-preview/9d09fe05225ba82e3b385153e45206b00c0b1467?cid=774b29d4f13844c495f206cafdad9c86';
-
 const Player = () => {
+  const { tracks, answer } = useContext(GameContext);
   const [isHovering, setIsHovering] = useState(false);
-  const [audio, isPlaying, toggle, currTime, length] = useAudio(track_url);
+  const { setCurrURL, isPlaying, toggle, currTime, length } = useAudio();
 
   const handleClick = () => {
     toggle();
   };
 
-  if (!audio) return <>Audio blunder</>;
+  useEffect(() => {
+    setCurrURL(answer?.track?.preview_url || '');
+  }, [tracks, answer]);
 
   return (
     <div className="w-full flex flex-col items-center gap-2">

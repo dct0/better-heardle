@@ -1,16 +1,20 @@
-import { useRef, useState } from 'react';
+import type { Dispatch, MutableRefObject, SetStateAction } from 'react';
 
 import type { PlaylistOverview } from '@/utils/types';
 
 import Playlist from './playlist';
 
-const Playlists = () => {
-  const [currPlaylistID, setCurrPlaylistID] = useState(
-    window.localStorage.getItem('currPlaylistID')
-  );
-  const playlists = useRef(
-    JSON.parse(window.localStorage.getItem('playlists') || '')
-  );
+interface PlaylistsProps {
+  playlists: MutableRefObject<any>;
+  currPlaylistID: string;
+  setCurrPlaylistID: Dispatch<SetStateAction<string>>;
+}
+
+const Playlists = ({
+  playlists,
+  currPlaylistID,
+  setCurrPlaylistID,
+}: PlaylistsProps) => {
   return (
     <div className="grid grid-cols-fit-sm gap-4">
       {playlists.current.map((p: PlaylistOverview) => {

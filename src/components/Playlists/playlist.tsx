@@ -8,7 +8,7 @@ interface PlaylistProps {
   name: string;
   songCount: number;
   selected: boolean;
-  setPlaylist: Dispatch<SetStateAction<string | null>>;
+  setPlaylist: Dispatch<SetStateAction<string>>;
 }
 
 const Playlist = ({
@@ -32,8 +32,8 @@ const Playlist = ({
             <div
               className="icon-container-circle"
               onClick={() => {
-                window.localStorage.setItem('currPlaylistID', id);
                 setPlaylist(id);
+                console.log(id);
               }}
             >
               {selected ? (
@@ -50,7 +50,7 @@ const Playlist = ({
             />
           </div>
 
-          {/* Name TODO: make it link to the playlist */}
+          {/* Name */}
           <div className="text-ellipsis whitespace-nowrap overflow-hidden">
             <a
               className="text-xl font-bold cursor-pointer"
