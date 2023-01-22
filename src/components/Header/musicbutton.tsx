@@ -44,7 +44,7 @@ const MusicButton = () => {
   useEffect(() => {
     setCurrPlaylistID(window.localStorage.getItem('currPlaylistID') || '');
     playlists.current = JSON.parse(
-      window.localStorage.getItem('playlists') || ''
+      window.localStorage.getItem('playlists') || '[]'
     );
   }, []);
 

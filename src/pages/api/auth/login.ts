@@ -34,6 +34,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
     .post('https://accounts.spotify.com/api/token', payload, axiosConfig)
     .then((r) => {
       if (r.status !== 200) {
+        console.log('log');
         res.status(r.status).send({ message: "Spotify didn't like that" });
         return;
       }

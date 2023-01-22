@@ -14,13 +14,15 @@ export const formatTime = (time: number) => {
 };
 
 export const getPlaylists = () => {
+  console.log('Getting Playlists...');
   fetch('/api/playlists', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('access_token')}`,
     },
   })
-    .then((res) =>
+    .then((res) => {
+      console.log('Got response');
       res
         .json()
         .then((r) => {
@@ -36,8 +38,8 @@ export const getPlaylists = () => {
         })
         .catch((error) => {
           console.error(error);
-        })
-    )
+        });
+    })
     .catch((error) => {
       console.error(error);
     });

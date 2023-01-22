@@ -21,7 +21,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       'https://api.spotify.com/v1/me/playlists',
       axiosConfig
     );
-    res.status(r.status).json(r.data);
+
+    if (r.status !== 200) {
+      console.log('Could not get playlists');
+      res.status(r.status).send({ message: "Spotify didn't like that" });
+      return;
+    }
+
+    res.status(200).json(r.data);
   } catch (error) {
     if (axios.isAxiosError(error)) {
       if (error.status && error.response)
